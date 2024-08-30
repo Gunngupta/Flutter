@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/widgets/theme.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'pages/loginpage.dart';
 import 'pages/homepage.dart';
@@ -17,15 +18,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       // home: HomePage(), //we can't have route default SLASH indicating to homepage and Home : homepage together
       themeMode: ThemeMode.light,
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        fontFamily: GoogleFonts.lato().fontFamily,
-      ),
+      theme: MyTheme.lightTheme(context),
       debugShowCheckedModeBanner: false,
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-      ),
-      //initialRoute: "/home",
+      darkTheme: MyTheme.darkTheme(context),
+      initialRoute: MyRoutes.homeRoute,
       routes: {
         "/": (context) => const LoginPage(), //default route
         MyRoutes.homeRoute: (context) => const HomePage(),
